@@ -1,0 +1,8 @@
+[package]
+name = "rhyolite"
+version = "0.1.0"
+authors = ["chansuke <moonset20@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+nom = "^4.0"
