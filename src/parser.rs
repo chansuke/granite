@@ -1,7 +1,8 @@
 use nom::digit;
 use nom::types::CompleteStr;
+use nom::*;
 
-use crate::tokens::Token;
+use crate::token::Token;
 
 named!(pub expression<CompleteStr, Token>,
   ws!(
@@ -48,7 +49,7 @@ named!(integer<CompleteStr, Token>,
   )
 );
 
-named!(pub operatpr<CompleteStr, Token>,
+named!(pub operator<CompleteStr, Token>,
   ws!(
     do_parse!(
       token: alt!(
@@ -72,7 +73,7 @@ named!(pub operatpr<CompleteStr, Token>,
   )
 );
 
-named!(program<CompleteStr, Token>,
+named!(pub program<CompleteStr, Token>,
   ws!(
       do_parse!(
           expressions: many1!(expression) >>
